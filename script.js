@@ -5,31 +5,27 @@ function checkpassword() {
     console.log("password entered: " + password);  // debugging line
 
     // password strength checks
-    const lengthpass = password.length >= 8;  // to make sure password is at least 8 characters
-    const numberpass = /\d/.test(password);    // to check if there's a number
+    const lengthpass = password.length >= 10;  // to make sure password is atleast 10 letters
+    const numberpass = /\d/.test(password);    // to check if theres numbers
     const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // to check for symbols
     const capitalpass = /[A-Z]/.test(password); // to check for uppercase letters
-    const lowercasepass = /[a-z]/.test(password); // to check for lowercase letters
+    const lowercasepass = /[a-z]/.test(password); // to check for lower case letters
     const nopass = password.length <= 0;      // to check if no password is entered
 
     // initialize strength level at 0
     let strength = 0;
 
-    // increase the strength for each criterion met
+    // increase the strength for each criteria met
     if (lengthpass) strength++;
     if (numberpass) strength++;
     if (symbolpass) strength++;
     if (capitalpass) strength++;
-    if (lowercasepass) strength++;  // add strength for lowercase letters
-
-    // if no password is entered, reduce strength
+    if (lowercasepass) strength++;
+    
+    // lower the strength if theres no password input in the first place.
     if (nopass) strength--;
 
     console.log("strength level: " + strength);  // debugging line
-
-    // reset the result area before showing new result
-    result.textContent = "";  // clear previous result
-    result.style.color = "black";  // reset the text color
 
     // determine password strength based on the strength level
     if (strength === 6) {
@@ -41,17 +37,17 @@ function checkpassword() {
         result.style.color = "green";
     } 
     else if (strength === 4) {
-        result.textContent = "your password is manageable..";
+        result.textContent = "your password is manageable.";
         result.style.color = "orange";
     } 
     else if (strength === 3) {
-        result.textContent = "your password is alright..";
+        result.textContent = "your password is alright.";
         result.style.color = "yellow";
     } 
     else if (strength === 2) {
         result.textContent = "your password is weak!";
         result.style.color = "red";
-    }
+    } 
     else if (strength === 1) {
         result.textContent = "your password is very weak!";
         result.style.color = "red";
@@ -62,19 +58,17 @@ function checkpassword() {
     }
 }
 
-// function to generate a strong password
 function generatePassword() {
-    const length = 14;  // password length
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';  // characters to use for password
+    console.log("generating password...");  // debugging line
+    const length = 14;
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
     let password = '';
 
-    // randomly select characters to form the password
     for (let i = 0; i < length; i++) {
         password += chars.charAt(Math.floor(Math.random() * chars.length));
     }
 
-    // display the generated password
     const display = document.getElementById('generated-password');
     display.textContent = `here is your password: ${password}`;
-    display.style.color = "blue";  // set the color of the generated password to blue
+    display.style.color = "blue";
 }
