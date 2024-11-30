@@ -1,4 +1,4 @@
-unction checkpassword() {
+function checkpassword() {
     const password = document.getElementById('password').value;
     const result = document.getElementById('result');
 
@@ -17,7 +17,7 @@ unction checkpassword() {
     // initialize strength level
     let strength = 0;
 
-    // shortpass, nopass, scenarios
+    // shortpass, nopass scenarios
     if (nopass) {
         strength = -1; // if no password is entered, set strength to -1
         result.textContent = "you didn't insert a password!";
@@ -31,7 +31,6 @@ unction checkpassword() {
         result.style.color = "red";
         return; // exit function early since password is too short
     }
-    
 
     // increase strength for each valid condition
     if (lengthpass) strength++;
@@ -39,7 +38,7 @@ unction checkpassword() {
     if (symbolpass) strength++;
     if (capitalpass) strength++;
     if (lowercasepass) strength++;
-    if (longpass) strength++;
+    if (longpass) strength++;  // giving bonus for very long passwords (12 or more characters)
 
     console.log("strength level: " + strength);  // debugging line
 
