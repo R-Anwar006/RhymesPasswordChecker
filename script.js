@@ -5,12 +5,14 @@ function checkpassword() {
     console.log("password entered: " + password);  // debugging line
 
     // password strength checks
-    const lengthpass = password.length >= 10;  // to make sure password is atleast 10 letters
+    const lengthpass = password.length >= 8;  // to make sure password is atleast 8 letters/numbers/symbols.
     const numberpass = /\d/.test(password);    // to check if theres numbers
     const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // to check for symbols
     const capitalpass = /[A-Z]/.test(password); // to check for uppercase letters
     const lowercasepass = /[a-z]/.test(password); // to check for lower case letters
     const nopass = password.length <= 0;      // to check if no password is entered
+    const shortpass = passwordlength <= 5; // if password length is only up to 5 letters/numbers/symbols, its too short.
+    const longpass = passwordlength >= 12 // if password is very long then it increases strength.
 
     // initialize strength level at 1
     let strength = 0;
@@ -21,9 +23,11 @@ function checkpassword() {
     if (symbolpass) strength++;
     if (capitalpass) strength++;
     if (lowercasepass) strength++;
+    if (longpass) strength++;
     
-    // lower the strength if theres no password input in the first place.
+    // lower the strength if theres no password input in the first place or if the pass is too short.
     if (nopass) strength--;
+    if (shortpass) strength--;
 
     console.log("strength level: " + strength);  // debugging line
 
