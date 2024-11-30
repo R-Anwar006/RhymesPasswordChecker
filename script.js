@@ -52,11 +52,11 @@ function checkpassword() {
         result.textContent = "Your password is weak!";
         result.style.color = "red";
     } 
-    else if (strength === 1) {
+    else if (strength == 1) {
         result.textContent = "Your password is very weak!";
         result.style.color = "red";
     }
-    else if (strength <= -1) {
+    else if (strength <= 0) {
         result.textContent = "you didn't insert a password!";
         result.style.color = "red";
     }
