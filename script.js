@@ -2,7 +2,6 @@ function checkpassword() {
     const password = document.getElementById('password').value;
     const result = document.getElementById('result');
 
-
     // password strength checks
     const lengthpass = password.length >= 8;  // to make sure password is at least 8 characters
     const numberpass = /\d/.test(password);    // to check if there are numbers
