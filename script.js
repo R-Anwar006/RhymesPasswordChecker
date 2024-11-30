@@ -2,7 +2,6 @@ function checkpassword() {
     const password = document.getElementById('password').value;
     const result = document.getElementById('result');
 
-    console.log("password entered: " + password);  // debugging line
 
     // password strength checks
     const lengthpass = password.length >= 8;  // to make sure password is at least 8 characters
@@ -70,9 +69,8 @@ function checkpassword() {
 }
     
     function generatePassword() {
-    console.log("Generating password...");  // debugging line
 
-    const length = 14;  // At least 14 characters for a very strong password
+    const length = 14;  // at least 14 characters for a very strong password
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
     let password = '';
 
