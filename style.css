@@ -25,10 +25,12 @@ button:hover {
 #result, #generated-password {
     margin-top: 20px;
     font-size: 18px;
+    color: #00FF00; /* green text */
     font-family: 'Courier New', Courier, monospace; /* monospace font */
 }
 
 h1, h2 {
     font-family: 'Courier New', Courier, monospace; /* Monospace font */
     text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; /* Green glowing text effect */
+    color: #00FF00; /* green text */
 }
