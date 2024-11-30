@@ -105,4 +105,3 @@ function generatePassword() {
     display.textContent = `Here is your password: ${password}`;
     display.style.color = "blue";
 }
-</script>
