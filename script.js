@@ -39,4 +39,5 @@ function checkpassword()
     {
         result.textContent = "You didnt insert a password!";
         result.style.color = "red";
+    }
 }
