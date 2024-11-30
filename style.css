@@ -1,0 +1,34 @@
+body {
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    background-color: black; /* Dark background */
+    color: #00FF00; /* Bright green text */
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border: 1px solid #00FF00; /* Green border for input and button */
+    background-color: black; /* Black background for buttons and input */
+    color: #00FF00; /* Green text */
+    font-family: 'Courier New', Courier, monospace; /* Same font for input and buttons */
+}
+
+button:hover {
+    background-color: #00FF00;
+    color: black; /* Green background with black text on hover */
+}
+
+#result, #generated-password {
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+}
+
+h1, h2 {
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; /* Green glowing text effect */
+}
