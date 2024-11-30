@@ -14,7 +14,7 @@ function checkpassword() {
     const shortpass = password.length <= 5; // if password length is only up to 5 letters/numbers/symbols, its too short.
     const longpass = password.length >= 12; // if password is very long then it increases strength.
 
-    // initialize strength level at 1
+    // initialize strength level at 0
     let strength = 0;
 
     // increase the strength for each criteria met
@@ -56,7 +56,7 @@ function checkpassword() {
         result.textContent = "Your password is very weak!";
         result.style.color = "red";
     }
-    else if (strength <= 0) {
+    else if (strength <= -1) {
         result.textContent = "you didn't insert a password!";
         result.style.color = "red";
     }
