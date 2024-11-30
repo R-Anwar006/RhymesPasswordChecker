@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Strength Checker</title>
-    <style>
-        #result {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Password Checker</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+    <h1>Password Checker</h1>
 
-    <h2>Password Strength Checker</h2>
-    <label for="password">Enter Password: </label>
-    <input type="text" id="password" oninput="checkpassword()">
-    <p id="result"></p>
+    <input type="password" id="password" placeholder="Enter your password!">
+    <button onclick="checkpassword()">Check your password strength!</button>
+    <div id="result"></div>
 
-    <h2>Generate Password</h2>
-    <button onclick="generatePassword()">Generate Password</button>
+    <h2>If you need help making a new password, use our Strong Password Maker!</h2>
+    <button onclick="generatePassword()">Generate a strong password!</button>
     <div id="generated-password"></div>
 
-    <!-- Link to the external JavaScript file -->
-    <script src="script.js"></script>
+    <script src="script.js"></script>  
 </body>
 </html>
