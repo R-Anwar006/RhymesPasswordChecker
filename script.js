@@ -5,7 +5,7 @@ function checkpassword() {
     console.log("password entered: " + password);  // debugging line
 
     // password strength checks
-    const lengthpass = password.length >= 10;  // to make sure password is at least 10 characters
+    const lengthpass = password.length >= 8;  // to make sure password is at least 8 characters
     const numberpass = /\d/.test(password);    // to check if there's a number
     const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // to check for symbols
     const capitalpass = /[A-Z]/.test(password); // to check for uppercase letters
