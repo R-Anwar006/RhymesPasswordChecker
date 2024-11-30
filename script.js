@@ -23,7 +23,7 @@ function checkpassword() {
     if (symbolpass) strength++;
     if (capitalpass) strength++;
     if (lowercasepass) strength++;
-    if (longpass) strength++;
+    if (longpass) strength = 4;
     
     // set the strength if theres no password input in the first place or if the pass is too short.
     if (nopass) strength = -1;
