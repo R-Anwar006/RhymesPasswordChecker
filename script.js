@@ -25,9 +25,9 @@ function checkpassword() {
     if (lowercasepass) strength++;
     if (longpass) strength++;
     
-    // lower the strength if theres no password input in the first place or if the pass is too short.
-    if (nopass) strength--;
-    if (shortpass) strength--;
+    // set the strength if theres no password input in the first place or if the pass is too short.
+    if (nopass) strength = -1;
+    if (shortpass) strength = 2;
 
     console.log("strength level: " + strength);  // debugging line
 
