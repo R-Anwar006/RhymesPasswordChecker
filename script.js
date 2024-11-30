@@ -5,7 +5,7 @@ function checkpassword()
 
     console.log("Password entered: " + password);  // Debugging line
 
-    const lengthpass = password.length >= 8;
+    const lengthpass = password.length >= 10;
     const numberpass = /\d/.test(password);
     const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     const capitalpass = /[A-Z]/.test(password);
