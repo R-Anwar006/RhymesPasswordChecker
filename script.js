@@ -13,7 +13,7 @@ function checkpassword() {
     const nopass = password.length <= 0;      // to check if no password is entered
 
     // initialize strength level at 1
-    let strength = 1;
+    let strength = 0;
 
     // increase the strength for each criteria met
     if (lengthpass) strength++;
