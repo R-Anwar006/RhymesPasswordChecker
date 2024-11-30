@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Checker</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">  
 </head>
 <body>
     <h1>Password Checker</h1>
+
+    <!-- password input and button for checking password strength -->
     <input type="password" id="password" placeholder="Enter your password">
     <button onclick="checkpassword()">Check your Password Strength</button>
-    <div id="result"></div>
+    <div id="result"></div>  <!-- display password strength result -->
 
+    <!-- password generator section -->
     <h2>If you need help making a new password, use our Strong Password Maker</h2>
-    <button onclick="generatestrongpassword()">Generate a Strong Password</button>
-    <div id="generated-password"></div>
+    <button onclick="generatePassword()">Generate a Strong Password</button>
+    <div id="generated-password"></div>  
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>  
 </body>
 </html>
