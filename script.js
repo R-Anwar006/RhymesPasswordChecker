@@ -67,6 +67,7 @@ function checkpassword() {
         result.textContent = "Your password is very weak!";
         result.style.color = "red";
     }
+}
     
     function generatePassword() {
     console.log("Generating password...");  // debugging line
