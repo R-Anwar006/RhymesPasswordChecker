@@ -2,37 +2,42 @@ function checkpassword() {
     const password = document.getElementById('password').value;
     const result = document.getElementById('result');
 
-    console.log("Password entered: " + password);  // Debugging line
+    console.log("Password entered: " + password);  // debugging line
 
     // Password strength checks
-    const lengthpass = password.length >= 10;  // Check if length is 10 or more
-    const numberpass = /\d/.test(password);    // Check if there's a number
-    const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // Check for symbols
-    const capitalpass = /[A-Z]/.test(password); // Check for uppercase letters
-    const nopass = password.length <= 0;      // Check if no password is entered
+    const lengthpass = password.length >= 10;  // to make sure password is atleast 10 letters
+    const numberpass = /\d/.test(password);    // to check if theres numbers
+    const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // to check for symbols
+    const capitalpass = /[A-Z]/.test(password); // to check for uppercase letters
+    const lowercasepass = /[a-z]/.test(password); // to check for lower case letters
+    const nopass = password.length <= 0;      // to check if no password is entered
 
-    // Initialize strength level
+    // initialize strength level at 0
     let strength = 0;
 
-    // Increase strength for each criterion that is met
+    // increase the strength for each criteria met
     if (lengthpass) strength++;
     if (numberpass) strength++;
     if (symbolpass) strength++;
     if (capitalpass) strength++;
 
-    // Decrease strength if password is empty
+    // lower the strength if theres no password input in the first place.
     if (nopass) strength--;
 
     console.log("Strength level: " + strength);  // Debugging line
 
     // Determine password strength based on the strength level
-    if (strength === 4) {
+    if (strength === 5) {
         result.textContent = "Your password is a strong password!";
         result.style.color = "green";
     } 
-    else if (strength === 3) {
+    else if (strength === 4) {
         result.textContent = "Your password is manageable..";
         result.style.color = "orange";
+    } 
+    else if (strength === 3) {
+        result.textContent = "Your password is alright..";
+        result.style.color = "yellow";
     } 
     else if (strength === 2) {
         result.textContent = "Your password is weak!";
