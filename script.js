@@ -5,40 +5,37 @@ function checkpassword() {
     console.log("password entered: " + password);  // debugging line
 
     // password strength checks
-    const lengthpass = password.length >= 8;  // to make sure password is at least 8 characters
-    const numberpass = /\d/.test(password);    // to check if there are numbers
+    const lengthpass = password.length >= 8;  // to make sure password is atleast 8 letters/numbers/symbols.
+    const numberpass = /\d/.test(password);    // to check if theres numbers
     const symbolpass = /[!@#$%^&*(),.?":{}|<>]/.test(password);  // to check for symbols
     const capitalpass = /[A-Z]/.test(password); // to check for uppercase letters
-    const lowercasepass = /[a-z]/.test(password); // to check for lowercase letters
+    const lowercasepass = /[a-z]/.test(password); // to check for lower case letters
     const nopass = password.length <= 0;      // to check if no password is entered
-    const shortpass = password.length <= 5; // if password length is only up to 5, it's too short
-    const longpass = password.length >= 12; // if password is very long, increase strength
+    const shortpass = password.length <= 5; // if password length is only up to 5 letters/numbers/symbols, its too short.
+    const longpass = password.length >= 12; // if password is very long then it increases strength.
 
-    // initialize strength level
-    let strength = 0;
+    // initialize strength level at 0
+   let strength = 0;
 
     // shortpass, nopass scenarios
     if (nopass) {
-        strength = -1; // if no password is entered, set strength to -1
-        result.textContent = "you didn't insert a password!";
-        result.style.color = "red";
-        return; // exit function early since password is invalid
+        strength -= 5; // Decrease by 5 if no password is entered
     }
 
     if (shortpass) {
-        strength = -1; // if password is too short, set strength to -1
+        strength === -1; // set to 2 if password is too short
         result.textContent = "your password is too short to be valid!";
         result.style.color = "red";
         return; // exit function early since password is too short
     }
 
-    // increase strength for each valid condition
+    // increase the strength for each criteria met
     if (lengthpass) strength++;
     if (numberpass) strength++;
     if (symbolpass) strength++;
     if (capitalpass) strength++;
     if (lowercasepass) strength++;
-    if (longpass) strength++;  // giving bonus for very long passwords (12 or more characters)
+    if (longpass) strength++;
 
     console.log("strength level: " + strength);  // debugging line
 
@@ -67,4 +64,41 @@ function checkpassword() {
         result.textContent = "Your password is very weak!";
         result.style.color = "red";
     }
+    else if (strength <= -3) {
+        result.textContent = "you didn't insert a password!";
+        result.style.color = "red";
+    }
+}
+
+function generatePassword() {
+    console.log("Generating password...");  // debugging line
+
+    // make sure the password meets the strength criteria
+    const length = 14;  // At least 14 characters for a very strong password
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+    let password = '';
+
+    // make sure the password contains at least one number, one uppercase, one lowercase, and one symbol
+    const numbers = '0123456789';
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const symbols = '!@#$%^&*()_+[]{}|;:,.<>?';
+
+    // generate at least one character of each type to maximizze the strength
+    password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    password += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+    password += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+    password += symbols.charAt(Math.floor(Math.random() * symbols.length));
+
+    // fill the rest of the password to meet the required length
+    for (let i = password.length; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    // shuffle up the password to randomize the character order
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
+
+    const display = document.getElementById('generated-password');
+    display.textContent = `Here is your password: ${password}`;
+    display.style.color = "blue";
 }
