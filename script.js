@@ -67,8 +67,7 @@ function checkpassword() {
     }
 }
     
-    function generatePassword() {
-
+function generatePassword() {
     const length = 14;  // at least 14 characters for a very strong password
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
     let password = '';
@@ -93,7 +92,26 @@ function checkpassword() {
     // shuffle the password to randomize the character order
     password = password.split('').sort(() => Math.random() - 0.5).join('');
 
+    // Create a div to display the "Click to see password" box
     const display = document.getElementById('generated-password');
-    display.textContent = `Here is your password: ${password}`;
+    display.textContent = "Click to see password";
     display.style.color = "blue";
+    display.style.cursor = "pointer";  // Change cursor to indicate it's clickable
+    display.style.display = "inline-block";  // Make sure it behaves like a box
+
+    // Add padding and a border to style it as a box
+    display.style.padding = "10px 20px";
+    display.style.border = "2px solid blue";
+    display.style.borderRadius = "5px";
+    display.style.textAlign = "center";
+    display.style.marginTop = "10px";  // Optional margin for visual spacing
+
+    // When clicked, reveal the password and hide the box
+    display.onclick = function() {
+        display.textContent = `Here is your password: ${password}`;
+        display.style.color = "blue";
+        display.style.cursor = "default";  // Reset cursor to default after revealing the password
+        display.style.padding = "10px";  // Adjust padding after revealing the password
+        display.style.border = "none";  // Remove the border once clicked
+    };
 }
